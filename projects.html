@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Gourav Sharma</title>
+<meta name="description" content="View the complete list of projects built by Gourav Sharma, including HealthTech platforms, E-Book systems, and Chat Bots.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projects — Gourav Sharma">
+<meta property="og:description" content="View the complete list of projects built by Gourav Sharma.">
+<meta property="og:image" content="https://[YOUR_LIVE_DOMAIN_HERE]/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="style.css?v=3">
+<style>
+  .page-head{padding:150px 0 60px;}
+  .page-head .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:0.82rem; color:var(--teal);
+    display:flex; align-items:center; gap:10px; margin-bottom:16px;
+  }
+  .page-head .eyebrow::before{content:""; width:24px; height:1px; background:var(--teal);}
+  .page-head h1{font-size:clamp(2rem, 4vw, 2.8rem); margin-bottom:14px;}
+  .page-head p{color:var(--muted); max-width:60ch;}
+  #project-list{padding-top:0; padding-bottom:110px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="logo.png" alt="Gourav Sharma" class="brand-logo"></a>
+    <div class="navlinks">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <a class="nav-cta hide-mobile" href="index.html#contact">Say hello →</a>
+      <button class="hamburger" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="page-head wrap">
+  <span class="eyebrow mono">ALL PROJECTS</span>
+  <h1>Things I've built, end to end</h1>
+  <p>Each one below has a full write-up — tech stack, build date, source, and a link to the live thing if it's deployed. Hover a card for a preview, click through for the details.</p>
+</header>
+
+<section id="project-list">
+  <div class="wrap">
+    <div class="project-grid" id="grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Gourav Sharma.</p>
+    <div class="fsocials">
+      <a href="mailto:gouravns111@gmail.com" aria-label="Email">✉</a>
+      <a href="https://www.linkedin.com/in/gourav-sharma-4919862a7" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+      <a href="https://github.com/GouravSharma26" target="_blank" rel="noopener noreferrer" aria-label="GitHub">gh</a>
+    </div>
+  </div>
+</footer>
+
+<script src="projects-data.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile Menu
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if(mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+      mobileBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('open');
+    });
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
+
+  const accentVar = {teal:'var(--teal)', amber:'var(--amber)', violet:'var(--violet)', rose:'var(--rose)'};
+
+  const grid = document.getElementById('grid');
+  window.PROJECTS.forEach(p => {
+    const card = document.createElement('a');
+    card.className = 'project-card';
+    card.href = `project.html?id=${p.id}`;
+
+    const initials = p.title.split(' ').map(w => w[0]).slice(0,2).join('').toUpperCase();
+
+    card.innerHTML = `
+      <div class="thumb" style="--glow:${accentVar[p.accent] || 'var(--teal)'}">
+        <div class="grid-bg"></div>
+        <div class="glow"></div>
+        <span class="mono-tag">${p.live ? 'live' : 'repo only'}</span>
+        <div class="initials">${initials}</div>
+        <div class="overlay"><span>View project →</span></div>
+      </div>
+      <h3>${p.title}</h3>
+      <p>${p.tagline}</p>
+      <div class="tech-row">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
+    `;
+    grid.appendChild(card);
+    });
+
+    // 3D Project Card Tracking
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        card.style.transform = `perspective(1000px) rotateX(${-y * 10}deg) rotateY(${x * 10}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      });
+    });
+</script>
+<script src="site-common.js"></script>
+</body>
+</html>

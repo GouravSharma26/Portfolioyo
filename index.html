@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gourav Sharma — Full-Stack Developer</title>
+  <meta name="description"
+    content="Portfolio of Gourav Sharma, a Full-Stack Developer specializing in React, Django, and PostgreSQL. Based in Jaipur, India.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gourav Sharma — Full-Stack Developer">
+  <meta property="og:description"
+    content="Portfolio of Gourav Sharma, a Full-Stack Developer specializing in React, Django, and PostgreSQL.">
+  <meta property="og:image" content="https://[YOUR_LIVE_DOMAIN_HERE]/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  </noscript>
+  <link rel="stylesheet" href="style.css?v=4">
+
+  <style>
+    /* HERO */
+    header.hero {
+      padding: 150px 0 100px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 .accent {
+      color: var(--teal);
+    }
+
+    .hero-role {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--amber);
+      font-size: 1.05rem;
+      margin-bottom: 22px;
+    }
+
+    .hero p.lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 46ch;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 38px;
+    }
+
+    .hero-socials {
+      display: flex;
+      gap: 20px;
+    }
+
+    .hero-socials a {
+      color: var(--muted);
+      font-size: 1.25rem;
+      transition: color .2s, transform .2s;
+    }
+
+    .hero-socials a:hover {
+      color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+
+    /* ABOUT */
+    #about {
+      border-top: 1px solid var(--line);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .avatar-block {
+      aspect-ratio: 1;
+      border-radius: 18px;
+      background: linear-gradient(155deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-block .initials {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 5rem;
+      color: var(--line);
+    }
+
+    .avatar-block::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 49%, var(--line) 50%, transparent 51%);
+      background-size: 24px 24px;
+      opacity: 0.15;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      max-width: 62ch;
+    }
+
+    .about-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .fact {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      background: var(--panel);
+    }
+
+    .fact .k {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 4px;
+    }
+
+    .fact .v {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* SKILLS */
+    #skills {
+      background: var(--panel);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skill-clusters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .cluster {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .cluster h3 {
+      font-size: 0.95rem;
+      color: var(--teal);
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: var(--ink);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    /* PROJECTS TEASER */
+    .teaser-foot {
+      text-align: center;
+      margin-top: 36px;
+    }
+
+    /* CONTACT */
+    #contact {
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    #contact .section-head {
+      text-align: center;
+    }
+
+    #contact .section-head p {
+      color: var(--muted);
+      max-width: 50ch;
+      margin: 12px auto 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 760px;
+      margin: 44px auto 0;
+    }
+
+    .contact-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 18px;
+      transition: border-color .2s, transform .2s;
+      display: block;
+    }
+
+    .contact-card:hover {
+      border-color: var(--teal-dim);
+      transform: translateY(-3px);
+    }
+
+    .contact-card .ic {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--teal);
+    }
+
+    .contact-card .k {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+    }
+
+    .contact-card .v {
+      font-size: 0.88rem;
+      word-break: break-word;
+    }
+
+
+    .contact-section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 44px;
+      align-items: start;
+      text-align: left;
+    }
+
+    .contact-form {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-form label {
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--ink);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: 2px solid var(--teal);
+      outline-offset: -1px;
+      border-color: transparent;
+    }
+
+    .form-msg {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .form-msg.success {
+      display: block;
+      background: rgba(94, 234, 212, 0.1);
+      border: 1px solid var(--teal);
+      color: var(--teal);
+    }
+
+    .form-msg.error {
+      display: block;
+      background: rgba(251, 113, 133, 0.1);
+      border: 1px solid var(--rose);
+      color: var(--rose);
+    }
+
+    @media (max-width: 860px) {
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-section-inner {
+        grid-template-columns: 1fr;
+      }
+
+      header.hero {
+        padding: 120px 0 70px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- Parallax Background Shapes -->
+  <div class="bg-shape shape-1" data-speed="2"></div>
+  <div class="bg-shape shape-2" data-speed="-1.5"></div>
+  <div class="bg-shape shape-3" data-speed="1"></div><!-- SECRET TERMINAL -->
+  <div id="hacker-terminal">
+    <div class="term-header">
+      <div class="term-title">system_root@portfolio: ~</div>
+      <button class="term-close" id="term-close">×</button>
+    </div>
+    <div class="term-body" id="term-body">
+      <div>Welcome to the mainframe.</div>
+      <div>Type 'help' for a list of commands.</div>
+    </div>
+    <div class="term-input-line">
+      <span class="prompt">$&nbsp;</span>
+      <input type="text" id="term-input" autocomplete="off" spellcheck="false" autofocus />
+    </div>
+  </div>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="logo.png" alt="Gourav Sharma" class="brand-logo"></a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a class="nav-cta hide-mobile" href="#contact">Say hello →</a>
+        <button class="hamburger" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow mono">B.TECH CSE · SRM INSTITUTE · JAIPUR, INDIA</span>
+        <h1>Building robust software that scales <span class="accent">elegantly</span>.</h1>
+        <div class="hero-role mono">
+          <span id="hero-typewriter"></span><span class="typewriter-cursor">_</span>
+        </div>
+        <p class="lead">I specialize in building full-stack web applications that perform seamlessly under the hood and look beautiful on the screen. From crafting responsive user interfaces to architecting robust backend systems, I turn complex problems into polished digital solutions.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projects.html">View projects</a>
+          <a class="btn btn-ghost" href="#contact">Contact me</a>
+          <a class="btn btn-ghost" href="resume.pdf" target="_blank">Download Resume</a>
+        </div>
+        <div class="hero-socials">
+          <a href="mailto:gouravns111@gmail.com" aria-label="Email" title="Email">✉</a>
+          <a href="https://www.linkedin.com/in/gourav-sharma-4919862a7" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a href="https://github.com/GouravSharma26" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+            title="GitHub">gh</a>
+          <a href="https://x.com/GouavsHarma259" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"
+            title="X / Twitter">x</a>
+        </div>
+      </div>
+
+      <div class="hero-editor" aria-hidden="true">
+        <div class="editor-header">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <div class="tabs">
+            <div class="tab active" id="tab-0">ProjectCard.jsx</div>
+            <div class="tab" id="tab-1">views.py</div>
+            <div class="tab" id="tab-2">query.sql</div>
+          </div>
+        </div>
+        <div class="editor-body">
+          <div class="line-numbers">
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+          </div>
+          <div class="code-area">
+            <div id="editor-typing"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap about-grid reveal">
+      <div class="avatar-block"><img src="Profile.png" alt="Gourav Sharma"
+          style="width:100%; height:100%; object-fit:cover; position:relative; z-index:2;"></div>
+      <div class="about-text">
+        <span class="section-num mono">01 / About</span>
+        <h2 style="margin-bottom:20px;">Aspiring software developer, based in Jaipur</h2>
+        <p>I'm currently pursuing a B.Tech in Computer Science and Engineering at SRM Institute of Science and
+          Technology. I'm skilled in C++, Python, React, Django, and SQL, with hands-on experience building full-stack
+          web applications from scratch.</p>
+        <p>I care about problem-solving and building things people can actually use — not just projects that work on my
+          machine. My focus is on writing efficient, scalable code and continuously picking up new tools along the way.
+        </p>
+        <div class="about-facts">
+          <div class="fact">
+            <div class="k">Location</div>
+            <div class="v">Jaipur, India</div>
+          </div>
+          <div class="fact">
+            <div class="k">Education</div>
+            <div class="v">B.Tech CSE, SRM IST</div>
+          </div>
+          <div class="fact">
+            <div class="k">Focus</div>
+            <div class="v">Full-stack Developer</div>
+          </div>
+          <div class="fact">
+            <div class="k">Status</div>
+            <div class="v">Open to opportunities</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num mono">02 / Skills</span>
+        <h2>What I build with</h2>
+      </div>
+      <div class="skill-clusters">
+        <div class="cluster">
+          <h3>Languages</h3>
+          <div class="pill-row"><span class="pill">C++</span><span class="pill">Python</span><span
+              class="pill">JavaScript</span><span class="pill">SQL</span></div>
+        </div>
+        <div class="cluster">
+          <h3>Frontend</h3>
+          <div class="pill-row"><span class="pill">React.js</span><span class="pill">HTML</span><span
+              class="pill">CSS</span><span class="pill">Tailwind CSS</span></div>
+        </div>
+        <div class="cluster">
+          <h3>Backend & Data</h3>
+          <div class="pill-row"><span class="pill">Django</span><span class="pill">REST APIs</span><span
+              class="pill">PostgreSQL</span></div>
+        </div>
+        <div class="cluster">
+          <h3>Tools</h3>
+          <div class="pill-row"><span class="pill">Git & GitHub</span><span class="pill">VS Code</span></div>
+        </div>
+        <div class="cluster">
+          <h3>Working with others</h3>
+          <div class="pill-row"><span class="pill">Problem-solving</span><span class="pill">Teamwork</span><span
+              class="pill">Communication</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num mono">03 / Projects</span>
+        <h2>A few recent builds</h2>
+      </div>
+      <div class="project-grid reveal" id="teaser-grid"></div>
+      <div class="teaser-foot">
+        <a class="btn btn-ghost" href="projects.html">See all projects →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num mono">04 / Contact</span>
+        <h2>Let's build something</h2>
+        <p>Open to internships, junior roles, and interesting freelance work. The fastest way to reach me is email.</p>
+      </div>
+      <div class="wrap contact-section-inner reveal">
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/PLACEHOLDER" method="POST">
+          <!-- Replace PLACEHOLDER with real formspree ID -->
+          <label>
+            Name
+            <input type="text" name="name" required placeholder="Your name">
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required placeholder="your@email.com">
+          </label>
+          <label>
+            Message
+            <textarea name="message" required rows="4" placeholder="How can I help you?"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary" style="justify-content:center;">Send message</button>
+          <div id="form-status" class="form-msg" aria-live="polite"></div>
+        </form>
+        <div class="contact-grid" style="margin-top:0; display:flex; flex-direction:column;">
+          <a class="contact-card" href="mailto:gouravns111@gmail.com">
+            <div class="ic">✉</div>
+            <div class="k mono">Email</div>
+            <div class="v">gouravns111@gmail.com</div>
+          </a>
+          <a class="contact-card" href="tel:+918769549919">
+            <div class="ic">☎</div>
+            <div class="k mono">Phone</div>
+            <div class="v">+91 87695 49919</div>
+          </a>
+          <a class="contact-card" href="https://www.linkedin.com/in/gourav-sharma-4919862a7" target="_blank"
+            rel="noopener noreferrer">
+            <div class="ic">in</div>
+            <div class="k mono">LinkedIn</div>
+            <div class="v">gourav-sharma-4919862a7</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="year"></span> Gourav Sharma. Built line by line, one layer at a time.</p>
+      <div class="fsocials">
+        <a href="mailto:gouravns111@gmail.com" aria-label="Email">✉</a>
+        <a href="https://www.linkedin.com/in/gourav-sharma-4919862a7" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn">in</a>
+        <a href="https://github.com/GouravSharma26" target="_blank" rel="noopener noreferrer" aria-label="GitHub">gh</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="projects-data.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile Menu
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+        mobileBtn.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('open');
+      });
+      // Close mobile menu on link click
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileBtn.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.remove('open');
+        });
+      });
+    }
+
+    // Contact Form
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const formData = new FormData(contactForm);
+        const url = contactForm.getAttribute('action');
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        formStatus.className = 'form-msg';
+        formStatus.textContent = 'Sending...';
+        formStatus.style.display = 'block';
+
+        fetch(url, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+          .then(response => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send message';
+            if (response.ok) {
+              formStatus.className = 'form-msg success';
+              formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
+              contactForm.reset();
+            } else {
+              formStatus.className = 'form-msg error';
+              formStatus.textContent = 'Oops! There was a problem submitting your form.';
+            }
+          })
+          .catch(error => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send message';
+            formStatus.className = 'form-msg error';
+            formStatus.textContent = 'Network error. Please try again later or contact me via email.';
+          });
+      });
+    }
+
+    const accentVar = { teal: 'var(--teal)', amber: 'var(--amber)', violet: 'var(--violet)', rose: 'var(--rose)' };
+    const grid = document.getElementById('teaser-grid');
+    window.PROJECTS.slice(0, 4).forEach(p => {
+      const card = document.createElement('a');
+      card.className = 'project-card';
+      card.href = `project.html?id=${p.id}`;
+      const initials = p.title.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+      card.innerHTML = `
+      <div class="thumb" style="--glow:${accentVar[p.accent] || 'var(--teal)'}">
+        <div class="grid-bg"></div>
+        <div class="glow"></div>
+        <span class="mono-tag">${p.live ? 'live' : 'repo only'}</span>
+        <div class="initials">${initials}</div>
+        <div class="overlay"><span>View project →</span></div>
+      </div>
+      <h3>${p.title}</h3>
+      <p>${p.tagline}</p>
+      <div class="tech-row">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
+    `;
+      grid.appendChild(card);
+    });
+    // --- HERO EDITOR TYPING LOGIC ---
+    const snippets = [
+      {
+        tabId: 'tab-0',
+        html: `<span class="kw">export default function</span> <span class="fn">ProjectCard</span>({ project }) {\n  <span class="kw">return</span> (\n    <span class="tag">&lt;div</span> className=<span class="str">"card hover-effect"</span><span class="tag">&gt;</span>\n      <span class="tag">&lt;h3&gt;</span>{project.title}<span class="tag">&lt;/h3&gt;</span>\n      <span class="tag">&lt;p&gt;</span>{project.tagline}<span class="tag">&lt;/p&gt;</span>\n      <span class="tag">&lt;TechStack</span> stack={project.tech} /<span class="tag">&gt;</span>\n    <span class="tag">&lt;/div&gt;</span>\n  );\n}`
+      },
+      {
+        tabId: 'tab-1',
+        html: `<span class="kw">from</span> django.http <span class="kw">import</span> JsonResponse\n<span class="kw">from</span> .models <span class="kw">import</span> Project\n\n<span class="kw">def</span> <span class="fn">get_projects</span>(request):\n    <span class="cmt"># Fetch active projects ordered by date</span>\n    projects = Project.objects.filter(is_active=<span class="kw">True</span>).order_by(<span class="str">'-date'</span>)\n    data = [{<span class="str">'id'</span>: p.id, <span class="str">'title'</span>: p.title} <span class="kw">for</span> p <span class="kw">in</span> projects]\n    <span class="kw">return</span> JsonResponse({<span class="str">'status'</span>: <span class="str">'success'</span>, <span class="str">'data'</span>: data})`
+      },
+      {
+        tabId: 'tab-2',
+        html: `<span class="kw">SELECT</span> p.id, p.title, c.name <span class="kw">AS</span> category\n<span class="kw">FROM</span> projects p\n<span class="kw">INNER JOIN</span> categories c <span class="kw">ON</span> p.category_id = c.id\n<span class="kw">WHERE</span> p.is_active = <span class="kw">true</span>\n<span class="kw">ORDER BY</span> p.created_at <span class="kw">DESC</span>\n<span class="kw">LIMIT</span> <span class="str">10</span>;`
+      }
+    ];
+
+    const typeArea = document.getElementById('editor-typing');
+    const tabs = document.querySelectorAll('.hero-editor .tab');
+    
+    // Parse HTML string into typable chunks
+    const parseSnippet = (htmlStr) => {
+      const parts = [];
+      let inTag = false;
+      let currentPart = "";
+      for (let i = 0; i < htmlStr.length; i++) {
+        const char = htmlStr[i];
+        if (char === '<') {
+          inTag = true;
+          currentPart = "<";
+        } else if (char === '>') {
+          inTag = false;
+          currentPart += ">";
+          parts.push({ type: 'tag', content: currentPart });
+          currentPart = "";
+        } else if (inTag) {
+          currentPart += char;
+        } else {
+          parts.push({ type: 'char', content: char });
+        }
+      }
+      return parts;
+    };
+
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+    const runTypingLoop = async () => {
+      let snippetIdx = 0;
+      // Safety check: exit if element is removed from DOM
+      while (document.contains(typeArea)) {
+        const snippet = snippets[snippetIdx];
+        
+        // Switch tab visually
+        tabs.forEach(t => t.classList.remove('active'));
+        document.getElementById(snippet.tabId).classList.add('active');
+        
+        const chunks = parseSnippet(snippet.html);
+        typeArea.innerHTML = '';
+        let currentHTML = '';
+        
+        // Typing phase
+        for (const chunk of chunks) {
+          if (!document.contains(typeArea)) return;
+          currentHTML += chunk.content;
+          typeArea.innerHTML = currentHTML + '<span class="cursor blink">|</span>';
+          if (chunk.type === 'char') await sleep(30 + Math.random() * 30);
+        }
+        
+        // Pause after typing
+        await sleep(2000);
+        
+        // Erasing phase (erases chunk by chunk)
+        for (let i = chunks.length - 1; i >= 0; i--) {
+          if (!document.contains(typeArea)) return;
+          currentHTML = currentHTML.slice(0, -chunks[i].content.length);
+          typeArea.innerHTML = currentHTML + '<span class="cursor blink">|</span>';
+          if (chunks[i].type === 'char') await sleep(15);
+        }
+        
+        // Pause before next snippet
+        await sleep(500);
+        snippetIdx = (snippetIdx + 1) % snippets.length;
+      }
+    };
+
+    if (typeArea) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // Reduced motion: show first snippet instantly, no loop
+        const snippet = snippets[0];
+        tabs.forEach(t => t.classList.remove('active'));
+        document.getElementById(snippet.tabId).classList.add('active');
+        typeArea.innerHTML = snippet.html;
+      } else {
+        runTypingLoop();
+      }
+    }
+
+    // 3D Project Card Tracking
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        card.style.transform = `perspective(1000px) rotateX(${-y * 10}deg) rotateY(${x * 10}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      });
+    });
+    // --- INTERACTIVITY UPGRADES ---
+
+    // 1. Scroll Reveal Animations
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+
+
+    // 3. Parallax Background Shapes
+    const shapes = document.querySelectorAll('.bg-shape');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      shapes.forEach(shape => {
+        const speed = parseFloat(shape.dataset.speed || 1);
+        shape.style.transform = `translateY(${scrolled * speed * 0.2}px)`;
+      });
+    });
+
+
+    // --- SECRET TERMINAL LOGIC ---
+    let secretBuffer = '';
+    const secretCode = 'hack';
+    const terminal = document.getElementById('hacker-terminal');
+    const termBody = document.getElementById('term-body');
+    const termInput = document.getElementById('term-input');
+    const termClose = document.getElementById('term-close');
+
+    // Toggle terminal
+    const toggleTerminal = () => {
+      terminal.classList.toggle('active');
+      if (terminal.classList.contains('active')) {
+        setTimeout(() => termInput.focus(), 100);
+      }
+    };
+
+    termClose.addEventListener('click', () => terminal.classList.remove('active'));
+
+    document.addEventListener('keydown', (e) => {
+      // Guard against typing in forms
+      if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+
+      if (!terminal.classList.contains('active') && e.key.length === 1) {
+        secretBuffer += e.key.toLowerCase();
+        if (secretBuffer.length > 10) secretBuffer = secretBuffer.slice(-10);
+        if (secretBuffer.includes(secretCode)) {
+          secretBuffer = '';
+          toggleTerminal();
+        }
+      }
+    });
+
+    const printLog = (msg, type = '') => {
+      const div = document.createElement('div');
+      div.className = `term-log ${type}`;
+      div.innerHTML = msg;
+      termBody.appendChild(div);
+      termBody.scrollTop = termBody.scrollHeight;
+    };
+
+    let snakeActive = false;
+    termInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = termInput.value.trim().toLowerCase();
+        if (!val) return;
+        termInput.value = '';
+        printLog(`$&nbsp;${val}`, 'echo');
+
+        if (snakeActive && val !== 'exit') {
+          printLog('Snake is running. Type "exit" to quit game.', 'warn');
+          return;
+        }
+
+        switch (val) {
+          case 'help':
+            printLog('Commands: whoami, projects, clear, exit, snake');
+            break;
+          case 'whoami':
+            printLog('Gourav Sharma<br/>Full-Stack Developer<br/>"Building software that connects front to back, cleanly."');
+            break;
+          case 'projects':
+            printLog('1. React + Django Application<br/>2. PostgreSQL Integration<br/>... Type "exit" and click Projects in nav for full UI.');
+            break;
+          case 'clear':
+            termBody.innerHTML = '<div>Terminal cleared.</div>';
+            break;
+          case 'exit':
+            if (snakeActive) {
+              snakeActive = false;
+              termBody.innerHTML = '<div>Snake game terminated.</div>';
+            } else {
+              terminal.classList.remove('active');
+            }
+            break;
+          case 'snake':
+            printLog('INITIALIZING SNAKE PROTOCOL...', 'warn');
+            startSnake();
+            break;
+          default:
+            printLog(`command not found: ${val}`, 'error');
+        }
+      }
+    });
+
+    // Basic Snake Game inside Terminal
+    const startSnake = () => {
+      snakeActive = true;
+      const canvas = document.createElement('canvas');
+      canvas.width = 300; canvas.height = 200;
+      canvas.style.border = '1px solid var(--teal)';
+      canvas.style.marginTop = '10px';
+      termBody.appendChild(canvas);
+      termBody.scrollTop = termBody.scrollHeight;
+
+      const ctx = canvas.getContext('2d');
+      let snake = [{ x: 10, y: 10 }];
+      let dir = { x: 1, y: 0 };
+      let food = { x: 15, y: 10 };
+      let score = 0;
+      const grid = 10;
+      let gameLoop;
+
+      const draw = () => {
+        if (!snakeActive) { clearInterval(gameLoop); return; }
+
+        let head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+        if (head.x < 0 || head.x >= canvas.width / grid || head.y < 0 || head.y >= canvas.height / grid || snake.some(s => s.x === head.x && s.y === head.y)) {
+          clearInterval(gameLoop);
+          printLog(`GAME OVER. Score: ${score}. Type 'snake' to restart.`, 'error');
+          snakeActive = false;
+          return;
+        }
+
+        snake.unshift(head);
+        if (head.x === food.x && head.y === food.y) {
+          score += 10;
+          food = { x: Math.floor(Math.random() * (canvas.width / grid)), y: Math.floor(Math.random() * (canvas.height / grid)) };
+        } else {
+          snake.pop();
+        }
+
+        ctx.fillStyle = '#050505';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#33ff00';
+        snake.forEach(s => ctx.fillRect(s.x * grid, s.y * grid, grid - 1, grid - 1));
+        ctx.fillStyle = '#ff3333';
+        ctx.fillRect(food.x * grid, food.y * grid, grid - 1, grid - 1);
+
+        ctx.fillStyle = '#33ff00';
+        ctx.fillText(`Score: ${score}`, 5, 12);
+      };
+
+      const keyHandler = (e) => {
+        if (!snakeActive) { document.removeEventListener('keydown', keyHandler); return; }
+        if (e.key === 'ArrowUp' && dir.y === 0) dir = { x: 0, y: -1 };
+        if (e.key === 'ArrowDown' && dir.y === 0) dir = { x: 0, y: 1 };
+        if (e.key === 'ArrowLeft' && dir.x === 0) dir = { x: -1, y: 0 };
+        if (e.key === 'ArrowRight' && dir.x === 0) dir = { x: 1, y: 0 };
+        if (e.key.startsWith('Arrow')) e.preventDefault();
+      };
+      document.addEventListener('keydown', keyHandler);
+      gameLoop = setInterval(draw, 100);
+    };
+
+    // --- HERO ROLE TYPEWRITER ---
+    const roleWords = [
+      "Aspiring Software Developer",
+      "Full Stack Web Developer",
+      "React & Django Enthusiast"
+    ];
+    const roleEl = document.getElementById('hero-typewriter');
+    if (roleEl) {
+      let rWordIdx = 0;
+      let rCharIdx = 0;
+      let rIsDeleting = false;
+      const typeRole = () => {
+        const currentWord = roleWords[rWordIdx];
+        if (rIsDeleting) {
+          roleEl.textContent = currentWord.substring(0, rCharIdx - 1);
+          rCharIdx--;
+        } else {
+          roleEl.textContent = currentWord.substring(0, rCharIdx + 1);
+          rCharIdx++;
+        }
+        let delay = rIsDeleting ? 50 : 70;
+        if (!rIsDeleting && rCharIdx === currentWord.length) {
+          delay = 1500;
+          rIsDeleting = true;
+        } else if (rIsDeleting && rCharIdx === 0) {
+          rIsDeleting = false;
+          rWordIdx = (rWordIdx + 1) % roleWords.length;
+          delay = 500;
+        }
+        setTimeout(typeRole, delay);
+      };
+      setTimeout(typeRole, 500);
+    }
+  </script>
+  <script src="site-common.js"></script>
+</body>
+
+</html>
