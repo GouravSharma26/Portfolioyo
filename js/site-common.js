@@ -71,4 +71,31 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial check
   }
+
+  // Scroll Spy for Nav Links
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const spyLinks = document.querySelectorAll('.navlinks a[href^="#"], .mobile-menu a[href^="#"]');
+  
+  if (sections.length > 0 && spyLinks.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          spyLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${entry.target.id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(sec => sectionObserver.observe(sec));
+  }
 });
