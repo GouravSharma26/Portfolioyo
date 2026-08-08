@@ -156,6 +156,14 @@ nav .wrap {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.navlinks a.active.filled,
+.mobile-menu a.active.filled {
+  background: var(--text);
+  color: var(--ink);
+  border-color: var(--text);
+  font-weight: 500;
+}
+
 .nav-cta {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.82rem;
