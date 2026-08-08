@@ -1,74 +1,86 @@
-// site-common.js
 document.addEventListener('DOMContentLoaded', () => {
-  // Check if we are on a pointer device (desktop)
-  if (window.matchMedia('(pointer: fine)').matches) {
-    // Inject the custom cursor DOM elements
-    const dot = document.createElement('div');
-    dot.id = 'cursor-dot';
-    const outline = document.createElement('div');
-    outline.id = 'cursor-outline';
-    
-    document.body.appendChild(dot);
-    document.body.appendChild(outline);
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-    let mX = 0, mY = 0;
-    let outlineX = 0, outlineY = 0;
-    
-    let hasMoved = false;
-    window.addEventListener('mousemove', (e) => {
-      mX = e.clientX;
-      mY = e.clientY;
-      if (!hasMoved) {
-        hasMoved = true;
+  const nav = document.querySelector('nav');
+  const mobileButton = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  const closeMenu = () => {
+    if (!mobileButton || !mobileMenu) return;
+    mobileButton.setAttribute('aria-expanded', 'false');
+    mobileButton.setAttribute('aria-label', 'Open navigation menu');
+    mobileMenu.classList.remove('open');
+  };
+
+  if (mobileButton && mobileMenu) {
+    mobileButton.addEventListener('click', event => {
+      event.stopPropagation();
+      const open = mobileButton.getAttribute('aria-expanded') !== 'true';
+      mobileButton.setAttribute('aria-expanded', String(open));
+      mobileButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      mobileMenu.classList.toggle('open', open);
+    });
+    mobileMenu.addEventListener('click', event => {
+      if (event.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('click', event => {
+      if (!mobileMenu.contains(event.target) && event.target !== mobileButton) closeMenu();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeMenu();
+        mobileButton.focus();
+      }
+    });
+  }
+
+  if (nav) {
+    const updateNav = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  }
+
+  if (finePointer && !reducedMotion) {
+    const dot = document.createElement('div');
+    const outline = document.createElement('div');
+    dot.id = 'cursor-dot';
+    outline.id = 'cursor-outline';
+    document.body.append(dot, outline);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let outlineX = 0;
+    let outlineY = 0;
+    let moved = false;
+
+    window.addEventListener('mousemove', event => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      if (!moved) {
+        moved = true;
         document.body.classList.add('cursor-ready');
       }
-      dot.style.transform = `translate(${mX}px, ${mY}px) translate(-50%, -50%)`;
+      dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
     });
-    
+
     const animateCursor = () => {
-      outlineX += (mX - outlineX) * 0.2;
-      outlineY += (mY - outlineY) * 0.2;
+      outlineX += (mouseX - outlineX) * 0.18;
+      outlineY += (mouseY - outlineY) * 0.18;
       outline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
       requestAnimationFrame(animateCursor);
     };
     animateCursor();
 
-    // Bind hovering effect to interactive elements
     const bindHoverEffects = () => {
-      const hoverElements = document.querySelectorAll('a, button, .project-card, .cmd-result-item, input, .tab');
-      hoverElements.forEach(el => {
-        // Prevent double binding
-        if (el.dataset.cursorBound) return;
-        el.dataset.cursorBound = "true";
-        el.addEventListener('mouseenter', () => outline.classList.add('hovering'));
-        el.addEventListener('mouseleave', () => outline.classList.remove('hovering'));
+      document.querySelectorAll('a, button, input, textarea, .tab').forEach(element => {
+        if (element.dataset.cursorBound) return;
+        element.dataset.cursorBound = 'true';
+        element.addEventListener('mouseenter', () => outline.classList.add('hovering'));
+        element.addEventListener('mouseleave', () => outline.classList.remove('hovering'));
       });
     };
-    
     bindHoverEffects();
-    
-    // MutationObserver to catch dynamically added elements
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.addedNodes.length > 0) {
-          bindHoverEffects();
-        }
-      });
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-  }
-
-  // Nav Scrolled State
-  const nav = document.querySelector('nav');
-  if (nav) {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    new MutationObserver(bindHoverEffects).observe(document.body, { childList: true, subtree: true });
   }
 });

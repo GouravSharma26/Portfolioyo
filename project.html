@@ -1,206 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Details — Gourav Sharma</title>
-<meta name="description" content="Detailed overview of a project built by Gourav Sharma, including tech stack, live demo, and source code.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Project Details — Gourav Sharma">
-<meta property="og:description" content="Detailed overview of a project built by Gourav Sharma.">
-<meta property="og:image" content="https://[YOUR_LIVE_DOMAIN_HERE]/assets/images/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/images/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
-<link rel="stylesheet" href="css/style.css?v=3">
-<style>
-  .detail-head{padding:140px 0 0;}
-  .back-link{
-    font-family:'JetBrains Mono', monospace; font-size:0.82rem; color:var(--muted);
-    display:inline-flex; align-items:center; gap:8px; margin-bottom:28px; transition:color .2s;
-  }
-  .back-link:hover{color:var(--teal);}
-
-  .detail-grid{
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px;
-    padding-bottom:100px; align-items:start;
-  }
-  .detail-tagline{color:var(--teal); font-family:'JetBrains Mono', monospace; font-size:0.95rem; margin-bottom:14px;}
-  .detail-title{font-size:clamp(1.8rem, 4vw, 2.6rem); margin-bottom:22px;}
-  .detail-desc{color:var(--muted); font-size:1.02rem; max-width:60ch; margin-bottom:32px;}
-
-  .meta-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:32px;}
-  .meta-item{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--panel);}
-  .meta-item .k{font-family:'JetBrains Mono', monospace; font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;}
-  .meta-item .v{font-weight:600; font-size:0.92rem;}
-
-  .stack-list{margin-bottom:32px;}
-  .stack-list h3{font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:12px; font-weight:500;}
-  .stack-list .tech-row span{font-size:0.8rem; padding:6px 12px;}
-
-  .action-row{display:flex; gap:14px; flex-wrap:wrap;}
-
-  /* Right-side preview box */
-  .preview-box{
-    position:sticky; top:100px;
-    border:1px solid var(--line);
-    border-radius:16px;
-    overflow:hidden;
-    background:var(--panel);
-    display:block;
-    cursor:pointer;
-    transition:border-color .2s, transform .2s;
-  }
-  .preview-box:hover{border-color:var(--teal-dim); transform:translateY(-3px);}
-  .preview-box .thumb{border-radius:0; border:none; aspect-ratio:4/3;}
-  .preview-box .thumb .initials{font-size:5rem;}
-  .preview-box .cta-strip{
-    padding:16px 18px;
-    display:flex; align-items:center; justify-content:space-between;
-    border-top:1px solid var(--line);
-  }
-  .preview-box .cta-strip .label{font-family:'JetBrains Mono', monospace; font-size:0.82rem; color:var(--teal);}
-  .preview-box .cta-strip .arrow{color:var(--teal); font-family:'JetBrains Mono', monospace;}
-
-  .not-found{padding:180px 0 120px; text-align:center;}
-  .not-found h1{margin-bottom:14px;}
-  .not-found p{color:var(--muted); margin-bottom:26px;}
-
-  @media (max-width: 860px){
-    .detail-grid{grid-template-columns:1fr;}
-    .preview-box{position:static;}
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details — Gourav Sharma</title>
+  <meta name="description" content="A full-stack project case study by Gourav Sharma.">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body>
-
-<nav>
-  <div class="wrap">
-    <a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Gourav Sharma" class="brand-logo"></a>
-    <div class="navlinks">
-      <a href="index.html#about">About</a>
-      <a href="index.html#skills">Skills</a>
-      <a href="projects.html" class="active">Projects</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-    <div style="display:flex; align-items:center; gap:12px;">
-      <a class="nav-cta hide-mobile" href="index.html#contact">Say hello →</a>
-      <button class="hamburger" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    </div>
-  </div>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html#about">About</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="projects.html" class="active">Projects</a>
-    <a href="index.html#contact">Contact</a>
-  </div>
-</nav>
-
-<div id="app"></div>
-
-<footer>
-  <div class="wrap">
-    <p>© <span id="year"></span> Gourav Sharma.</p>
-    <div class="fsocials">
-      <a href="mailto:gouravns111@gmail.com" aria-label="Email">✉</a>
-      <a href="https://www.linkedin.com/in/gourav-sharma-4919862a7" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
-      <a href="https://github.com/GouravSharma26" target="_blank" rel="noopener noreferrer" aria-label="GitHub">gh</a>
-    </div>
-  </div>
-</footer>
-
-<script src="js/projects-data.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Mobile Menu
-  const mobileBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if(mobileBtn && mobileMenu) {
-    mobileBtn.addEventListener('click', () => {
-      const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
-      mobileBtn.setAttribute('aria-expanded', !isExpanded);
-      mobileMenu.classList.toggle('open');
-    });
-    // Close mobile menu on link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileBtn.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.remove('open');
-      });
-    });
-  }
-
-  const accentVar = {teal:'var(--teal)', amber:'var(--amber)', violet:'var(--violet)', rose:'var(--rose)'};
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
-  const project = window.PROJECTS.find(p => p.id === id);
-  const app = document.getElementById('app');
-
-  if (!project) {
-    app.innerHTML = `
-      <div class="wrap not-found">
-        <h1>Project not found</h1>
-        <p>That project doesn't exist, or the link is missing an ?id=. Head back to see everything.</p>
-        <a class="btn btn-primary" href="projects.html">← Back to projects</a>
+  <nav aria-label="Primary navigation">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Gourav Sharma, home"><img src="assets/images/logo.png" alt="" class="brand-logo"></a>
+      <div class="navlinks">
+        <a href="index.html#about">About</a><a href="index.html#skills">Skills</a><a href="projects.html" class="active">Projects</a><a href="index.html#contact">Contact</a>
       </div>
-    `;
-  } else {
-    const initials = project.title.split(' ').map(w => w[0]).slice(0,2).join('').toUpperCase();
-    const glow = accentVar[project.accent] || 'var(--teal)';
-    const redirectTarget = project.live || project.repo;
-
-    app.innerHTML = `
-      <div class="wrap detail-head">
-        <a class="back-link" href="projects.html">← All projects</a>
+      <div class="nav-actions">
+        <a class="nav-cta hide-mobile" href="index.html#contact">Let&apos;s talk <span aria-hidden="true">↗</span></a>
+        <button class="hamburger" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"></button>
       </div>
-      <div class="wrap detail-grid">
-        <div>
-          <div class="detail-tagline mono">${project.tagline}</div>
-          <h1 class="detail-title">${project.title}</h1>
-          <p class="detail-desc">${project.description}</p>
+    </div>
+    <div class="mobile-menu" id="mobile-menu"><a href="index.html#about">About</a><a href="index.html#skills">Skills</a><a href="projects.html">Projects</a><a href="index.html#contact">Contact</a></div>
+  </nav>
 
-          <div class="meta-row">
-            <div class="meta-item">
-              <div class="k">Build date</div>
-              <div class="v">${project.date || 'Not set yet'}</div>
+  <main id="app"></main>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="year"></span> Gourav Sharma. Designed and built in Jaipur.</p>
+      <div class="fsocials">
+        <a href="mailto:gouravns111@gmail.com" aria-label="Email">@</a>
+        <a href="https://www.linkedin.com/in/gourav-sharma-4919862a7" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+        <a href="https://github.com/GouravSharma26" target="_blank" rel="noopener noreferrer" aria-label="GitHub">gh</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/projects-data.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const project = window.PROJECTS.find(item => item.id === new URLSearchParams(window.location.search).get('id'));
+    const app = document.getElementById('app');
+    const accentVar = {teal:'var(--teal)', amber:'var(--amber)', violet:'var(--violet)', rose:'var(--rose)'};
+
+    if (!project) {
+      app.innerHTML = `<div class="wrap not-found"><span class="eyebrow">404 · Lost commit</span><h1>Project not found.</h1><p>The link may be incomplete or the project has moved.</p><a class="btn btn-primary" href="projects.html">Back to all projects</a></div>`;
+    } else {
+      const initials = project.title.split(' ').map(word => word[0]).slice(0,2).join('').toUpperCase();
+      const target = project.live || project.repo;
+      document.title = `${project.title} — Gourav Sharma`;
+      app.innerHTML = `
+        <div class="wrap detail-head"><a class="back-link" href="projects.html"><span aria-hidden="true">←</span> All projects</a></div>
+        <article class="wrap detail-grid">
+          <div>
+            <div class="detail-tagline mono">Case study · ${project.live ? 'deployed product' : 'source available'}</div>
+            <h1 class="detail-title">${project.title}</h1>
+            <p class="detail-desc">${project.description}</p>
+            <div class="meta-row">
+              <div class="meta-item"><div class="k">Timeline</div><div class="v">${project.date || 'Independent build'}</div></div>
+              <div class="meta-item"><div class="k">Availability</div><div class="v">${project.live ? 'Live & open source' : 'Open source'}</div></div>
             </div>
-            <div class="meta-item">
-              <div class="k">Status</div>
-              <div class="v">${project.live ? 'Deployed' : 'Repo only'}</div>
+            <div class="stack-list"><h3>Built with</h3><div class="tech-row">${project.tech.map(tech => `<span>${tech}</span>`).join('')}</div></div>
+            <div class="action-row">
+              <a class="btn btn-primary" href="${project.repo}" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+              ${project.live ? `<a class="btn btn-ghost" href="${project.live}" target="_blank" rel="noopener noreferrer">Visit live site <span aria-hidden="true">↗</span></a>` : ''}
             </div>
           </div>
-
-          <div class="stack-list">
-            <h3>Tech stack</h3>
-            <div class="tech-row">${project.tech.map(t => `<span>${t}</span>`).join('')}</div>
-          </div>
-
-          <div class="action-row">
-            <a class="btn btn-primary" href="${project.repo}" target="_blank" rel="noopener noreferrer">View repo →</a>
-            ${project.live ? `<a class="btn btn-ghost" href="${project.live}" target="_blank" rel="noopener noreferrer">Open live site →</a>` : ''}
-          </div>
-        </div>
-
-        <a class="preview-box" href="${redirectTarget}" target="_blank" rel="noopener noreferrer">
-          <div class="thumb" style="--glow:${glow}">
-            <div class="grid-bg"></div>
-            <div class="glow"></div>
-            <div class="initials">${initials}</div>
-          </div>
-          <div class="cta-strip">
-            <span class="label">${project.live ? 'Open live site' : 'No live demo — view repo'}</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-      </div>
-    `;
-    document.title = `${project.title} — Gourav Sharma`;
-  }
-</script>
-<script src="js/site-common.js"></script>
+          <a class="preview-box" href="${target}" target="_blank" rel="noopener noreferrer" aria-label="${project.live ? 'Open live project' : 'Open source repository'} for ${project.title}">
+            <div class="thumb" style="--glow:${accentVar[project.accent] || 'var(--teal)'}"><div class="grid-bg"></div><div class="glow"></div><span class="mono-tag">Full-stack build</span><div class="initials">${initials}</div></div>
+            <div class="cta-strip"><span class="label">${project.live ? 'Experience the live build' : 'Explore the repository'}</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </article>`;
+    }
+  </script>
+  <script src="js/site-common.js"></script>
 </body>
 </html>

@@ -407,9 +407,9 @@
         <a href="projects.html">Projects</a>
         <a href="#contact">Contact</a>
       </div>
-      <div style="display:flex; align-items:center; gap:12px;">
-        <a class="nav-cta hide-mobile" href="#contact">Say hello →</a>
-        <button class="hamburger" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <div class="nav-actions">
+        <a class="nav-cta hide-mobile" href="#contact">Let&apos;s talk <span aria-hidden="true">↗</span></a>
+        <button class="hamburger" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"></button>
       </div>
     </div>
     <div class="mobile-menu" id="mobile-menu">
@@ -422,19 +422,20 @@
 
   <header class="hero" id="home">
     <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow mono">B.TECH CSE · SRM INSTITUTE · JAIPUR, INDIA</span>
-        <h1>Building robust software that scales <span class="accent">elegantly</span>.</h1>
+      <div class="hero-copy">
+        <span class="eyebrow mono">Full-stack developer · Jaipur, India</span>
+        <h1>I build the <span class="accent">whole</span> experience.</h1>
         <div class="hero-role mono">
           <span id="hero-typewriter"></span><span class="typewriter-cursor">_</span>
         </div>
         <p class="lead">I specialize in building full-stack web applications that perform seamlessly under the hood and look beautiful on the screen. From crafting responsive user interfaces to architecting robust backend systems, I turn complex problems into polished digital solutions.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="projects.html">View projects</a>
-          <a class="btn btn-ghost" href="#contact">Contact me</a>
-          <a class="btn btn-ghost" href="assets/docs/resume.pdf" target="_blank">Download Resume</a>
+          <a class="btn btn-primary" href="projects.html">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="#contact">Start a conversation</a>
+          <a class="btn btn-ghost" href="assets/docs/resume.pdf" target="_blank" rel="noopener noreferrer">Résumé <span aria-hidden="true">↗</span></a>
         </div>
+        <div class="availability">Available for internships, junior roles &amp; freelance</div>
         <div class="hero-socials">
           <a href="mailto:gouravns111@gmail.com" aria-label="Email" title="Email">✉</a>
           <a href="https://www.linkedin.com/in/gourav-sharma-4919862a7" target="_blank" rel="noopener noreferrer"
@@ -473,7 +474,7 @@
           style="width:100%; height:100%; object-fit:cover; position:relative; z-index:2;"></div>
       <div class="about-text">
         <span class="section-num mono">01 / About</span>
-        <h2 style="margin-bottom:20px;">Aspiring software developer, based in Jaipur</h2>
+          <h2>Aspiring software developer, based in Jaipur</h2>
         <p>I'm currently pursuing a B.Tech in Computer Science and Engineering at SRM Institute of Science and
           Technology. I'm skilled in C++, Python, React, Django, and SQL, with hands-on experience building full-stack
           web applications from scratch.</p>
@@ -557,7 +558,7 @@
         <h2>Let's build something</h2>
         <p>Open to internships, junior roles, and interesting freelance work. The fastest way to reach me is email.</p>
       </div>
-      <div class="wrap contact-section-inner reveal">
+        <div class="contact-section-inner reveal">
         <form id="contact-form" class="contact-form" action="https://formspree.io/f/PLACEHOLDER" method="POST">
           <!-- Replace PLACEHOLDER with real formspree ID -->
           <label>
@@ -612,24 +613,6 @@
   <script src="js/projects-data.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile Menu
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileBtn && mobileMenu) {
-      mobileBtn.addEventListener('click', () => {
-        const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
-        mobileBtn.setAttribute('aria-expanded', !isExpanded);
-        mobileMenu.classList.toggle('open');
-      });
-      // Close mobile menu on link click
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileBtn.setAttribute('aria-expanded', 'false');
-          mobileMenu.classList.remove('open');
-        });
-      });
-    }
 
     // Contact Form
     const contactForm = document.getElementById('contact-form');
