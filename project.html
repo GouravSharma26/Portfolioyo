@@ -136,16 +136,19 @@
 
   const accentVar = {teal:'var(--teal)', amber:'var(--amber)', violet:'var(--violet)', rose:'var(--rose)'};
   const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
+  let id = params.get('id');
+  if (!id && window.location.hash) {
+    id = window.location.hash.substring(1);
+  }
   const project = window.PROJECTS.find(p => p.id === id);
   const app = document.getElementById('app');
 
   if (!project) {
     app.innerHTML = `
-      <div class="wrap not-found">
-        <h1>Project not found</h1>
-        <p>That project doesn't exist, or the link is missing an ?id=. Head back to see everything.</p>
-        <a class="btn btn-primary" href="projects.html">← Back to projects</a>
+      <div class="wrap" style="text-align:center; padding-top:100px;">
+        <h1 style="margin-bottom:16px;">Project not found</h1>
+        <p style="color:var(--muted); margin-bottom:32px;">That project doesn't exist, or the link is missing a project ID. Head back to see everything.</p>
+        <a href="projects.html" class="btn btn-primary">← Back to projects</a>
       </div>
     `;
   } else {

@@ -103,7 +103,7 @@
   window.PROJECTS.forEach(p => {
     const card = document.createElement('a');
     card.className = 'project-card';
-    card.href = `project.html?id=${p.id}`;
+    card.href = `project.html#${p.id}`;
 
     const initials = p.title.split(' ').map(w => w[0]).slice(0,2).join('').toUpperCase();
 
