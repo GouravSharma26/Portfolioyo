@@ -79,10 +79,26 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   z-index: 50;
-  background: rgba(14, 18, 23, 0.85);
+  background: rgba(14, 18, 23, 0.5);
   backdrop-filter: blur(10px);
+  border: 1px solid transparent;
   border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  transition: all 0.7s ease-in-out;
+}
+
+nav.scrolled {
+  top: 16px;
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: rgba(14, 18, 23, 0.85);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
 }
 
 nav .wrap {

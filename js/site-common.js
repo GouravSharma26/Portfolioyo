@@ -57,4 +57,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     observer.observe(document.body, { childList: true, subtree: true });
   }
+
+  // Nav Scrolled State
+  const nav = document.querySelector('nav');
+  if (nav) {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+  }
 });
