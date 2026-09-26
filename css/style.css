@@ -1296,6 +1296,7 @@ footer .fsocials a:hover {
   gap: 22px;
 }
 
+/* Note: .achievement-card is the sibling of .project-card. New card-like components should decide up front which naming convention they're extending. */
 .achievement-card {
   display: block;
   background: var(--panel);
