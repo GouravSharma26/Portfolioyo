@@ -866,11 +866,7 @@ footer .fsocials a:hover {
 }
 @keyframes blink-typewriter { 50% { opacity: 0; } }
 
-/* ==================== */
-/* EXTRACTED STYLES FROM PAGES */
-/* ==================== */
-
-    /* HERO */
+/* HERO */
     header.hero {
       padding: 150px 0 100px;
       position: relative;
@@ -948,7 +944,7 @@ footer .fsocials a:hover {
     }
 
 
-    /* ABOUT */
+/* ABOUT */
     #about {
       border-top: 1px solid var(--line);
     }
@@ -1022,7 +1018,7 @@ footer .fsocials a:hover {
       font-size: var(--fs-base);
     }
 
-    /* SKILLS */
+/* SKILLS */
     #skills {
       background: var(--panel);
       border-top: 1px solid var(--line);
@@ -1068,13 +1064,13 @@ footer .fsocials a:hover {
       color: var(--text);
     }
 
-    /* PROJECTS TEASER */
+/* PROJECTS TEASER */
     .teaser-foot {
       text-align: center;
       margin-top: 36px;
     }
 
-    /* CONTACT */
+/* CONTACT */
     #contact {
       border-top: 1px solid var(--line);
       text-align: center;
