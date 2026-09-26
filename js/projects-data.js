@@ -20,7 +20,9 @@ window.PROJECTS = [
     repo: "https://github.com/GouravSharma26/HealthTechWebsite-Basic-.git",
     live: null, // TODO: add deployed URL if this one is live
     date: "", // TODO: add build month/year
-    accent: "teal"
+    accent: "teal",
+    featured: true,
+    status: "live"
   },
   {
     id: "ebook-system",
@@ -31,7 +33,9 @@ window.PROJECTS = [
     repo: "https://github.com/GouravSharma26/E-Book-System.git",
     live: null, // TODO
     date: "", // TODO
-    accent: "amber"
+    accent: "amber",
+    featured: true,
+    status: "live"
   },
   {
     id: "chat-bot",
@@ -42,7 +46,9 @@ window.PROJECTS = [
     repo: "https://github.com/GouravSharma26/Chat_Bot.git",
     live: null, // TODO
     date: "", // TODO
-    accent: "violet"
+    accent: "violet",
+    featured: true,
+    status: "in-progress"
   },
   {
     id: "old-newspaper",
@@ -53,7 +59,9 @@ window.PROJECTS = [
     repo: "https://github.com/GouravSharma26/Old_Newspaper.git",
     live: null, // TODO
     date: "", // TODO
-    accent: "rose"
+    accent: "rose",
+    featured: true,
+    status: "archived"
   }
 
   /*
@@ -67,7 +75,9 @@ window.PROJECTS = [
     repo: "https://github.com/you/repo",
     live: "https://your-live-url.com",  // or null
     date: "Jul 2025",
-    accent: "teal"  // teal | amber | violet | rose
+    accent: "teal",  // teal | amber | violet | rose
+    featured: true,
+    status: "live"
   },
   */
 ];
