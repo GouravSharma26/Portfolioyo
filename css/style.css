@@ -155,7 +155,7 @@ nav .wrap {
 .navlinks a.active {
   color: var(--text);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-hover);
 }
 
 .navlinks a.active.filled,
@@ -185,6 +185,18 @@ nav .wrap {
 @media (max-width: 860px) {
   .navlinks {
     display: none;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: block;
   }
 }
 
@@ -424,12 +436,6 @@ footer .fsocials a:hover {
   color: var(--teal);
 }
 
-@media (max-width: 860px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* MOBILE MENU */
 .hamburger {
   display: none;
@@ -468,16 +474,6 @@ footer .fsocials a:hover {
 
 .mobile-menu.open {
   display: flex;
-}
-
-@media (max-width: 860px) {
-  .hide-mobile {
-    display: none !important;
-  }
-
-  .hamburger {
-    display: block;
-  }
 }
 
 /* COMMAND PALETTE */
@@ -580,50 +576,12 @@ footer .fsocials a:hover {
   transform: translateY(0);
 }
 
-/* Custom Magnetic Cursor (Desktop only) */
-@media (pointer: fine) {
-  body {
-    cursor: none;
-  }
-
-  a,
-  button,
-  input,
-  textarea {
-    cursor: none;
-  }
-
-  #cursor-dot,
-  #cursor-outline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none;
-  }
-
-  #cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--teal);
-  }
-
-  #cursor-outline {
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgba(94, 234, 212, 0.5);
-    transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
-  }
-
-  #cursor-outline.hovering {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(94, 234, 212, 0.1);
-    border-color: transparent;
-  }
-}
+/* Custom Magnetic Cursor (Desktop only) — actual rules for this now live in the
+   single \`.cursor-ready\`-gated @media (pointer: fine) block further down, which
+   matches how js/site-common.js actually drives it. The unconditional
+   \`body { cursor: none }\` version that used to live here was removed: it hid
+   the system cursor immediately on load, before the custom dot/outline exist,
+   leaving no visible cursor at all if the custom-cursor JS is slow or fails. */
 
 /* Parallax Background Shapes */
 .bg-shape {

@@ -20,6 +20,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 <nav>
   <div class="wrap">
     <a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Gourav Sharma" class="brand-logo"></a>
@@ -27,6 +29,7 @@
       <a href="index.html#about">About</a>
       <a href="index.html#skills">Skills</a>
       <a href="projects.html" class="active filled">Projects</a>
+      <a href="index.html#achievements">Achievements</a>
       <a href="index.html#contact">Contact</a>
     </div>
     <div style="display:flex; align-items:center; gap:12px;">
@@ -38,11 +41,14 @@
     <a href="index.html#about">About</a>
     <a href="index.html#skills">Skills</a>
     <a href="projects.html" class="active filled">Projects</a>
+    <a href="index.html#achievements">Achievements</a>
     <a href="index.html#contact">Contact</a>
   </div>
 </nav>
 
+<main id="main-content">
 <div id="app"></div>
+</main>
 
 <footer>
   <div class="wrap">
@@ -116,7 +122,10 @@
             </div>
             <div class="meta-item">
               <div class="k">Status</div>
-              <div class="v">${project.live ? 'Deployed' : 'Repo only'}</div>
+              <div class="v">${
+                { live: 'Deployed', 'in-progress': 'In progress', archived: 'Archived' }[project.status]
+                || (project.live ? 'Deployed' : 'Repo only')
+              }</div>
             </div>
           </div>
 
