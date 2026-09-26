@@ -370,13 +370,15 @@
   <script src="js/achievements-data.js"></script>
   <script>
     const achGrid = document.getElementById('achievements-grid');
-    const catLabel = { certification: 'Certification', award: 'Award', hackathon: 'Hackathon' };
-    
+    const catLabel = { certification: 'Certification', award: 'Award', hackathon: 'Hackathon', workshop: 'Workshop' };
+
     if (achGrid && window.ACHIEVEMENTS) {
       window.ACHIEVEMENTS.forEach(a => {
-        const card = document.createElement(a.credentialUrl ? 'a' : 'div');
+        const hasLink = a.credentialUrl && a.credentialUrl !== 'coming-soon';
+        const isComingSoon = a.credentialUrl === 'coming-soon';
+        const card = document.createElement(hasLink ? 'a' : 'div');
         card.className = 'achievement-card';
-        if (a.credentialUrl) {
+        if (hasLink) {
           card.href = a.credentialUrl;
           card.target = '_blank';
           card.rel = 'noopener noreferrer';
@@ -389,7 +391,8 @@
           <p class="ach-issuer">${a.issuer}</p>
           <div class="ach-meta mono">
             <span>${a.date}</span>
-            ${a.credentialUrl ? '<span class="ach-link">View credential →</span>' : ''}
+            ${hasLink ? '<span class="ach-link">View credential →</span>' : ''}
+            ${isComingSoon ? '<span class="ach-soon">Coming soon</span>' : ''}
           </div>
         `;
         achGrid.appendChild(card);
