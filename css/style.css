@@ -279,7 +279,7 @@ section {
 .btn-primary:hover {
   background: #7FF3E0;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(94, 234, 212, 0.4);
+  box-shadow: var(--shadow-glow-strong);
 }
 
 .btn-ghost {
@@ -398,7 +398,7 @@ section {
 
 .project-card:hover {
   border-color: var(--teal-dim);
-  box-shadow: 0 15px 35px rgba(46, 139, 125, 0.12);
+  box-shadow: var(--shadow-glow);
   z-index: 10;
 }
 
@@ -489,7 +489,7 @@ footer .fsocials a:hover {
   flex-direction: column;
   padding: 16px 28px;
   gap: 16px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-md);
 }
 
 .mobile-menu a {
@@ -519,7 +519,7 @@ footer .fsocials a:hover {
   background: var(--panel);
   border-radius: var(--radius-sm);
   border: 1px solid var(--line);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
 }
@@ -1312,7 +1312,7 @@ footer .fsocials a:hover {
 .achievement-card:hover {
   border-color: var(--teal-dim);
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(46, 139, 125, 0.12);
+  box-shadow: var(--shadow-glow);
 }
 
 .ach-badge {
