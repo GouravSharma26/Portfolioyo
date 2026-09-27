@@ -8,6 +8,10 @@
   accent: "teal" | "amber" | "violet" | "rose" — controls the placeholder thumbnail glow color.
           Swap thumb.style with a real screenshot later: give the card an <img> instead
           of the .thumb placeholder markup once you have one.
+  caseStudy: OPTIONAL. { problem, solution, impact } — only add this for your strongest,
+          most complete projects (Tier 1). It renders as a themed Problem/Solution/Impact
+          section on the project detail page. Projects without this field just show the
+          existing description/tech/links layout — nothing breaks if you leave it off.
 */
 
 window.PROJECTS = [
@@ -22,7 +26,12 @@ window.PROJECTS = [
     date: "Sep 2026",
     accent: "teal",
     featured: true,
-    status: "live"
+    status: "live",
+    caseStudy: {
+      problem: "Booking a doctor's appointment online usually means a rigid form with no real understanding of urgency or symptoms — and there's no easy way for a doctor to verify patient-submitted documents or communicate securely within the same platform.",
+      solution: "Built a Django + React telehealth platform with distinct patient/doctor roles, a full appointment lifecycle (pending → confirmed → reschedule/cancel → completed), role-restricted in-app messaging, and doctor license/degree verification uploads. Layered an AI triage assistant on top using Gemini, plus a vision pipeline that extracts structured data straight from photographed prescriptions and lab reports instead of requiring manual entry.",
+      impact: "Deployed live with a working end-to-end booking flow — a patient can go from symptom description to a scheduled, doctor-verified appointment without a single manual data-entry step for uploaded documents."
+    }
   },
   {
     id: "devforge",
@@ -35,7 +44,12 @@ window.PROJECTS = [
     date: "Sep 2026",
     accent: "violet",
     featured: true,
-    status: "live"
+    status: "live",
+    caseStudy: {
+      problem: "Technical interview prep tools are either expensive real interviewers or shallow static problem lists — nothing gives structured, scored feedback across the dimensions real interviews actually test, and safely running arbitrary submitted code at scale is its own infrastructure problem most student projects never attempt.",
+      solution: "Built as a Turborepo monorepo: a Next.js/React 19 frontend running a Monaco-based code editor talking to a Fastify + Prisma backend on Neon Postgres. Mock interviews are scored live via Gemini across specific technical dimensions, submitted code runs through Piston for safe sandboxed execution, and a BullMQ worker pipeline handles background jobs like JD-matched resume generation and pulling in tech news. An ELO-based rating ladder turns practice into a measurable, competitive loop instead of a one-off exercise.",
+      impact: "Covers real-time AI scoring, sandboxed arbitrary code execution with safety constraints, a background job queue, and a rating system end-to-end — systems-design surface area well beyond a typical CRUD project."
+    }
   },
   {
     id: "vibeloader",
@@ -48,7 +62,12 @@ window.PROJECTS = [
     date: "Aug 2026",
     accent: "amber",
     featured: true,
-    status: "live"
+    status: "live",
+    caseStudy: {
+      problem: "Downloading YouTube video or playlist content usually means either a sketchy ad-laden converter site or a bare command-line tool with no UI — nothing that cleanly handles playlists, format/quality choice, and background processing in one interface.",
+      solution: "Built a Django + React app where users paste a URL, preview thumbnails, pick specific videos out of a playlist, and choose format and quality. Downloads run as Celery background jobs so the UI stays responsive during long downloads, with live progress polling and automatic server-side cleanup after a file is fetched.",
+      impact: "Handles the two hard parts a tool like this usually skips — long-running background work and playlist-level selection — instead of just wrapping a single-file download script."
+    }
   },
   {
     id: "chat-app",

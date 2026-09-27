@@ -152,6 +152,27 @@
           </div>
         </a>
       </div>
+
+      ${project.caseStudy ? `
+      <div class="wrap case-study" style="--glow:${glow}">
+        <div class="case-study-block">
+          <span class="case-study-label mono">Problem</span>
+          <p>${project.caseStudy.problem}</p>
+        </div>
+        <div class="case-study-block">
+          <span class="case-study-label mono">Solution</span>
+          <p>${project.caseStudy.solution}</p>
+        </div>
+        <div class="case-study-block">
+          <span class="case-study-label mono">Impact</span>
+          <p>${project.caseStudy.impact}</p>
+        </div>
+        <div class="case-study-cta">
+          <p>Interested in something like this?</p>
+          <a class="cta-text-link case-study-link" href="index.html#contact">Get in touch →</a>
+        </div>
+      </div>
+      ` : ''}
     `;
     document.title = `${project.title} — Gourav Sharma`;
   }

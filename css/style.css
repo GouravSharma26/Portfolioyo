@@ -1278,6 +1278,76 @@ footer .fsocials a:hover {
   .not-found h1{margin-bottom:14px;}
   .not-found p{color:var(--muted); margin-bottom:26px;}
 
+  /* CASE STUDY (Problem / Solution / Impact) — only renders when a project has
+     the optional `caseStudy` field in js/projects-data.js. Themed by whichever
+     accent color the project already uses everywhere else, via the inherited
+     --glow custom property. */
+  .case-study {
+    border-top: 1px solid var(--line);
+    padding: var(--space-8) 0;
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .case-study-block {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: var(--space-6);
+    align-items: baseline;
+  }
+
+  .case-study-label {
+    font-size: var(--fs-xs);
+    color: var(--glow, var(--teal));
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .case-study-block p {
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .case-study-cta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--line);
+  }
+
+  .case-study-cta p {
+    color: var(--muted);
+    font-size: var(--fs-sm);
+  }
+
+  .case-study-link {
+    color: var(--glow, var(--teal));
+    border-color: var(--glow, var(--teal));
+  }
+
+  @media (max-width: 860px) {
+    .case-study-block {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+    }
+  }
+
+  /* CTA TEXT LINK — a secondary, non-boxed call to action. Sits alongside
+     .btn-primary/.btn-ghost as a lighter-weight third option. */
+  .cta-text-link {
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-sm);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .cta-text-link:hover {
+    color: var(--teal);
+    border-color: var(--teal);
+  }
+
   @media (max-width: 860px){
     .detail-grid{grid-template-columns:1fr;}
     .preview-box{position:static;}
