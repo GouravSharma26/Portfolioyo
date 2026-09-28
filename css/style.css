@@ -1361,25 +1361,67 @@ footer .fsocials a:hover {
       max-width: 760px;
       margin: 44px auto 0;
     }
+    
+    .contact-grid.align-2x2 {
+      grid-template-columns: 1fr 1fr;
+      margin-top: 0;
+      max-width: none;
+    }
 
     .contact-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
+      background: rgba(22, 27, 34, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
       padding: 26px 18px;
-      transition: border-color .2s, transform .2s;
+      transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
       display: block;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(800px circle at top left, rgba(255,255,255,0.03), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
     }
 
     .contact-card:hover {
-      border-color: var(--teal-dim);
-      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .contact-card:hover::before {
+      opacity: 1;
     }
 
     .contact-card .ic {
-      font-size: var(--fs-xl);
-      margin-bottom: 10px;
-      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(14, 18, 23, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 16px;
+      color: var(--glow, var(--teal));
+      transition: transform 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .contact-card:hover .ic {
+      transform: scale(1.1) rotate(5deg);
+      color: #fff;
+      border-color: var(--glow, var(--teal));
+      box-shadow: 0 8px 24px var(--glow, var(--teal));
     }
 
     .contact-card .k {
@@ -1407,13 +1449,16 @@ footer .fsocials a:hover {
     }
 
     .contact-form {
-      background: var(--panel-2);
-      border: 1px solid var(--line);
+      background: rgba(22, 27, 34, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
       padding: var(--space-6);
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
 
     .contact-form label {
@@ -1421,25 +1466,28 @@ footer .fsocials a:hover {
       color: var(--muted);
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
+      font-weight: 500;
     }
 
     .contact-form input,
     .contact-form textarea {
-      background: var(--ink);
-      border: 1px solid var(--line);
+      background: rgba(14, 18, 23, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--text);
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-radius: var(--radius-sm);
       font-family: inherit;
       font-size: var(--fs-base);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     }
 
     .contact-form input:focus,
     .contact-form textarea:focus {
-      outline: 2px solid var(--teal);
-      outline-offset: -1px;
-      border-color: transparent;
+      outline: none;
+      border-color: var(--teal);
+      background: rgba(22, 27, 34, 0.8);
+      box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.15);
     }
 
     .form-msg {
@@ -1470,7 +1518,8 @@ footer .fsocials a:hover {
         grid-template-columns: 1fr;
       }
 
-      .contact-grid {
+      .contact-grid,
+      .contact-grid.align-2x2 {
         grid-template-columns: 1fr;
       }
 
