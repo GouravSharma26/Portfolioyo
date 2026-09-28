@@ -1026,15 +1026,56 @@ footer .fsocials a:hover {
 
     .skill-clusters {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(12, 1fr);
       gap: var(--space-5);
     }
 
     .cluster {
-      background: var(--panel-2);
+      background-color: var(--panel-2);
+      background-image: radial-gradient(color-mix(in srgb, var(--text) 8%, transparent) 1px, transparent 1px);
+      background-size: 24px 24px;
       border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 22px;
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cluster::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), color-mix(in srgb, var(--teal) 15%, transparent), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .skill-clusters:hover .cluster::before {
+      opacity: 1;
+    }
+
+    .cluster > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Bento Box Grid Assignments */
+    .cluster:nth-child(1) { grid-column: span 5; }
+    .cluster:nth-child(2) { grid-column: span 7; }
+    .cluster:nth-child(3) { grid-column: span 12; }
+    .cluster:nth-child(4) { grid-column: span 6; }
+    .cluster:nth-child(5) { grid-column: span 3; }
+    .cluster:nth-child(6) { grid-column: span 3; }
+
+    @media (max-width: 900px) {
+      .skill-clusters {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     .cluster h3 {
@@ -1064,6 +1105,15 @@ footer .fsocials a:hover {
       background: var(--ink);
       border: 1px solid var(--line);
       color: var(--text);
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+
+    .pill:hover {
+      border-color: var(--brand, var(--teal));
+      box-shadow: 0 4px 12px color-mix(in srgb, var(--brand, var(--teal)) 20%, transparent);
+      transform: translateY(-2px);
+      background: color-mix(in srgb, var(--brand, var(--teal)) 8%, var(--ink));
     }
 
     .pill i {
