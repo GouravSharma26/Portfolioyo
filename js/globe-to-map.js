@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const skillsAnchor = document.getElementById('skills-map-anchor');
   if (!heroAnchor || !skillsAnchor) return;
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const baseSkills = [
     // Languages
     { name: 'Python', icon: 'devicon-python-plain colored', color: '#3776AB' },
@@ -114,12 +116,46 @@ document.addEventListener('DOMContentLoaded', () => {
     if (skill.icon) {
       el.innerHTML = `<i class="${skill.icon}" style="color: ${skill.color}; filter: drop-shadow(0 0 6px color-mix(in srgb, ${skill.color} 30%, transparent));"></i>`;
     } else if (skill.short) {
-      el.innerHTML = `<span style="color: ${skill.color}; font-family: var(--font-mono); font-weight: 700; font-size: 2.2rem; filter: drop-shadow(0 0 6px color-mix(in srgb, ${skill.color} 30%, transparent));">${skill.short}</span>`;
+      el.innerHTML = `<span style="color: ${skill.color}; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 2.2rem; filter: drop-shadow(0 0 6px color-mix(in srgb, ${skill.color} 30%, transparent));">${skill.short}</span>`;
     }
     
     universe.appendChild(el);
     elements.push(el);
   });
+
+  // Reduced motion: skip the globe/morph animation entirely and place every
+  // icon directly in its final, static "map" grid position — same content,
+  // same hover tooltips, zero motion. Matches the pattern already used in
+  // hero-fx.js for the same media query.
+  if (prefersReducedMotion) {
+    const isMobileRM = window.innerWidth < 768;
+    const rowsRM = isMobileRM ? 6 : 4;
+    const spacingXRM = isMobileRM ? 120 : 150;
+    const spacingYRM = 85;
+    const colsRM = Math.ceil(N / rowsRM);
+    const totalWidthRM = colsRM * spacingXRM;
+
+    const skillsRect = skillsAnchor.getBoundingClientRect();
+    const sCX = skillsRect.left + skillsRect.width / 2;
+    const sCY = window.scrollY + skillsRect.top + skillsRect.height / 2;
+
+    universe.classList.add('map-mode');
+    universe.style.opacity = '1';
+
+    elements.forEach((el, i) => {
+      const r = i % rowsRM;
+      const c = Math.floor(i / rowsRM);
+      const mx = c * spacingXRM - totalWidthRM / 2;
+      const my = (r - (rowsRM - 1) / 2) * spacingYRM;
+      const finalX = sCX + mx - el.offsetWidth / 2;
+      const finalY = sCY + my - el.offsetHeight / 2;
+      el.style.transform = `translate3d(${finalX}px, ${finalY}px, 0px)`;
+      el.style.opacity = '1';
+      el.style.filter = 'none';
+    });
+
+    return; // no RAF loop, no scroll/mousemove listeners
+  }
 
   const sphereCoords = [];
   const isMobile = window.innerWidth < 768;
@@ -145,6 +181,47 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('mousemove', (e) => {
     const normX = (e.clientX / window.innerWidth) * 2 - 1;
     targetGlobeSpeed = normX * 0.015;
+  });
+
+  // Pause the render loop entirely when the hero/skills area is nowhere near
+  // the viewport, or when the tab is backgrounded — this was previously an
+  // unconditional infinite loop that kept recalculating 60 elements'
+  // positions and per-frame blur filters forever, regardless of scroll
+  // position or tab visibility.
+  let rafId = null;
+  let heroNear = false;
+  let skillsNear = false;
+  let tabVisible = document.visibilityState === 'visible';
+
+  function shouldRun() {
+    return tabVisible && (heroNear || skillsNear);
+  }
+
+  function startLoop() {
+    if (rafId === null) rafId = requestAnimationFrame(render);
+  }
+
+  function stopLoop() {
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  const proximityObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.target === heroAnchor) heroNear = entry.isIntersecting;
+      if (entry.target === skillsAnchor) skillsNear = entry.isIntersecting;
+    });
+    if (shouldRun()) startLoop(); else stopLoop();
+  }, { rootMargin: '100% 0px 100% 0px', threshold: 0 });
+
+  proximityObserver.observe(heroAnchor);
+  proximityObserver.observe(skillsAnchor);
+
+  document.addEventListener('visibilitychange', () => {
+    tabVisible = document.visibilityState === 'visible';
+    if (shouldRun()) startLoop(); else stopLoop();
   });
 
   function render() {
@@ -247,8 +324,14 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.zIndex = Math.round(z);
     });
 
-    requestAnimationFrame(render);
+    if (shouldRun()) {
+      rafId = requestAnimationFrame(render);
+    } else {
+      rafId = null;
+    }
   }
 
-  requestAnimationFrame(render);
+  // Don't start eagerly — the IntersectionObserver's initial callback
+  // (fired on observe()) will call startLoop() if the hero is already
+  // near the viewport on page load.
 });
