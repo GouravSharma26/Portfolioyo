@@ -1054,6 +1054,9 @@ footer .fsocials a:hover {
     }
 
     .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-family: 'JetBrains Mono', monospace;
       font-size: var(--fs-xs);
       padding: 6px 12px;
@@ -1061,6 +1064,19 @@ footer .fsocials a:hover {
       background: var(--ink);
       border: 1px solid var(--line);
       color: var(--text);
+    }
+
+    .pill i {
+      font-size: 1.2em;
+    }
+
+    .devicon-nextjs-original,
+    .devicon-express-original,
+    .devicon-prisma-original,
+    .devicon-fastify-plain,
+    .devicon-socketio-original,
+    .devicon-github-original {
+      filter: invert(1);
     }
 
 /* PROJECTS TEASER */
