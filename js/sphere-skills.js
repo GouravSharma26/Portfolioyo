@@ -37,9 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initSpeed: 'fast',
     direction: 135,
     keep: true,
-    useHTML: true,
-    useItemInlineStyles: false // Let CSS handle colors
+    useItemInlineStyles: false
   };
 
   TagCloud(container, texts, options);
+
+  // Force HTML rendering (some TagCloud versions use innerText by default)
+  document.querySelectorAll('.tagclouditem').forEach(item => {
+    // The library sets the text as plain text, so we convert it back to HTML
+    item.innerHTML = item.innerText || item.textContent;
+  });
 });
