@@ -40,7 +40,7 @@ window.ACHIEVEMENTS = [
     issuer: "Harvard University",
     date: "2024",
     category: "certification",
-    credentialUrl: "https://cs50.harvard.edu/certificates/1a6eab14-4846-4022-9292-edc3402bcc7b",
+    credentialUrl: "https://drive.google.com/file/d/1PCk9bopVjKy8LJocV3elEGGFED3crhne/view?usp=sharing",
     accent: "rose"
   },
   {

@@ -171,6 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
     p = Math.max(0, Math.min(1, p));
     const easeP = p < 0.5 ? 2 * p * p : -1 + (4 - 2 * p) * p;
 
+    // Fade the entire universe out heavily during transit over the 'About' section
+    // so it doesn't distract from the text, but blooms back in the skills map.
+    const transitOpacity = 1 - 0.85 * Math.sin(easeP * Math.PI);
+    universe.style.opacity = transitOpacity;
+
     const cX = hCX + (sCX - hCX) * easeP;
     const cY = hCY + (sCY - hCY) * easeP;
 

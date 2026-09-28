@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achievements — Gourav Sharma</title>
+<meta name="description" content="View the complete list of certifications, awards, and hackathons achieved by Gourav Sharma.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Achievements — Gourav Sharma">
+<meta property="og:description" content="View the complete list of achievements by Gourav Sharma.">
+<meta property="og:image" content="https://[YOUR_LIVE_DOMAIN_HERE]/assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="css/style.css?v=10">
+
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Gourav Sharma" class="brand-logo"></a>
+    <div class="navlinks">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="achievements.html" class="active filled">Achievements</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <a class="nav-cta hide-mobile" href="index.html#contact">Say hello →</a>
+      <button class="hamburger" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="achievements.html" class="active filled">Achievements</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<header class="page-head wrap">
+  <span class="eyebrow mono">ALL ACHIEVEMENTS</span>
+  <h1>Certifications & recognition</h1>
+  <p>A complete timeline of certifications, hackathons, and professional awards I've earned.</p>
+</header>
+
+<section id="achievement-list">
+  <div class="wrap">
+    <div class="achievement-grid" id="grid"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Gourav Sharma.</p>
+    <div class="fsocials">
+      <a href="mailto:gouravns111@gmail.com" aria-label="Email">✉</a>
+      <a href="https://www.linkedin.com/in/gourav-sharma-4919862a7" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+      <a href="https://github.com/GouravSharma26" target="_blank" rel="noopener noreferrer" aria-label="GitHub">gh</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/achievements-data.js?v=3"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile Menu
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if(mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+      mobileBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('open');
+    });
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
+
+  const accentVar = {teal:'var(--teal)', amber:'var(--amber)', violet:'var(--violet)', rose:'var(--rose)'};
+  const catLabel = { certification: 'Certification', award: 'Award', hackathon: 'Hackathon', workshop: 'Workshop' };
+  const catIcon = {
+    certification: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-4"/><path d="M8 14h8"/></svg>`,
+    award: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="m19.4 15 .06.06a2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>`,
+    hackathon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>`,
+    workshop: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>`
+  };
+
+  const grid = document.getElementById('grid');
+  if (window.ACHIEVEMENTS) {
+    window.ACHIEVEMENTS.forEach(a => {
+      const hasLink = a.credentialUrl && a.credentialUrl !== 'coming-soon';
+      const isComingSoon = a.credentialUrl === 'coming-soon';
+      const card = document.createElement(hasLink ? 'a' : 'div');
+      card.className = 'achievement-card';
+      if (hasLink) {
+        card.href = a.credentialUrl;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+      }
+      card.innerHTML = `
+        <div class="ach-badge" style="--glow:${accentVar[a.accent] || 'var(--teal)'}">
+          <div class="ach-icon">${catIcon[a.category] || catIcon.award}</div>
+          <span class="ach-cat mono">${catLabel[a.category] || 'Achievement'}</span>
+        </div>
+        <h3>${a.title}</h3>
+        <p class="ach-issuer">${a.issuer}</p>
+        <div class="ach-meta mono">
+          <span>${a.date}</span>
+          ${hasLink ? '<span class="ach-link">View credential →</span>' : ''}
+          ${isComingSoon ? '<span class="ach-soon">Coming soon</span>' : ''}
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // 3D Achievement Card Tracking
+    document.querySelectorAll('.achievement-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        card.style.transform = `perspective(1000px) rotateX(${-y * 10}deg) rotateY(${x * 10}deg) scale3d(1.02, 1.02, 1.02) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateY(0)`;
+      });
+    });
+  }
+</script>
+<script src="js/site-common.js"></script>
+</body>
+</html>
