@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfoliyo.example.com/sitemap.xml
+Sitemap: https://gouravsharma26.github.io/Portfolioyo/sitemap.xml
