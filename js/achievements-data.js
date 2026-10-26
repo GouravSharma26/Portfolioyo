@@ -8,6 +8,15 @@
 */
 window.ACHIEVEMENTS = [
   {
+    id: "google-data-analytics-professional",
+    title: "Google Data Analytics Professional Certificate",
+    issuer: "Google (via Coursera)",
+    date: "Oct 2026",
+    category: "certification",
+    credentialUrl: "https://coursera.org/verify/professional-cert/47VG4T0SHW7M",
+    accent: "teal"
+  },
+  {
     id: "google-data-analytics",
     title: "Foundations: Data, Data, Everywhere",
     issuer: "Google (via Coursera)",

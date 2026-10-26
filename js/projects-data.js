@@ -16,6 +16,42 @@
 
 window.PROJECTS = [
   {
+    id: "payrail",
+    title: "PayRail",
+    tagline: "Distributed payment processing & double-entry ledger simulator",
+    description: "A production-grade distributed payment processing and double-entry ledger simulator demonstrating transactional outbox eventing, concurrency controls, idempotency, and automated discrepancy reconciliation. Features Spring Boot 3.4, Apache Kafka, PostgreSQL with deterministic UUID row-locking for overdraft prevention, strict two-decimal BigDecimal arithmetic, and a real-time React + TypeScript operations dashboard.",
+    tech: ["Spring Boot", "Apache Kafka", "PostgreSQL", "React", "TypeScript", "Docker"],
+    repo: "https://github.com/GouravSharma26/PayRail.git",
+    live: "https://payrail-frontend.onrender.com",
+    date: "Oct 2026",
+    accent: "teal",
+    featured: true,
+    status: "live",
+    caseStudy: {
+      problem: "In distributed financial systems, transactions across microservices and message brokers risk dual-write inconsistencies, race conditions causing overdrafts, duplicate event deliveries, and silent balance corruptions.",
+      solution: "Engineered a distributed payment simulator with PostgreSQL as the source of truth and Kafka for event transport. Implemented atomic double-entry bookkeeping, strict two-decimal BigDecimal arithmetic, transactional outbox pattern with leased workers, deterministic UUID row-locking to prevent deadlocks, consumer claim-fencing, and periodic automated reconciliation scans.",
+      impact: "Guarantees zero-overdraft invariants and total debit/credit balance conservation, backed by a 167-test JUnit/Testcontainers suite and 29 Vitest frontend tests with real-time operations telemetry."
+    }
+  },
+  {
+    id: "bankflow",
+    title: "BankFlow",
+    tagline: "Banking transaction ETL & dimensional analytics warehouse",
+    description: "An end-to-end data engineering portfolio project that ingests synthetic banking events, validates data contracts, quarantines invalid records, loads a PostgreSQL dimensional warehouse, reconciles pipeline outcomes, and exposes read-only analytics through a FastAPI service and React dashboard.",
+    tech: ["Python", "FastAPI", "PostgreSQL", "SQL", "React", "Dimensional Modeling"],
+    repo: "https://github.com/GouravSharma26/BankFlow.git",
+    live: "https://bank-flow-eight.vercel.app/",
+    date: "Oct 2026",
+    accent: "violet",
+    featured: true,
+    status: "live",
+    caseStudy: {
+      problem: "Raw transactional data streams are susceptible to malformed records, contract violations, and discrepancies that pollute downstream analytics warehouses without clear audit trails or quarantine mechanisms.",
+      solution: "Built a robust data engineering ETL pipeline using Python and Click CLI to validate data contracts, quarantine invalid payloads, and load clean transactions into a star-schema PostgreSQL dimensional warehouse. Exposed analytical endpoints via FastAPI and built an interactive React dashboard for real-time portfolio metrics.",
+      impact: "Deployed live with a full CI pipeline, automated debit/credit reconciliation, and public API and dashboard deployments handling data ingestion to visualization."
+    }
+  },
+  {
     id: "healthtech",
     title: "HealthTech Website",
     tagline: "Doctor–patient telehealth marketplace with AI-assisted triage",
@@ -24,7 +60,7 @@ window.PROJECTS = [
     repo: "https://github.com/GouravSharma26/HealthTechWebsite.git",
     live: "https://healthtech-web.onrender.com",
     date: "Sep 2026",
-    accent: "teal",
+    accent: "amber",
     featured: true,
     status: "live",
     caseStudy: {
@@ -42,7 +78,7 @@ window.PROJECTS = [
     repo: "https://github.com/GouravSharma26/DevForge.git",
     live: "https://dev-forge-frontend-zeta.vercel.app/",
     date: "Sep 2026",
-    accent: "violet",
+    accent: "rose",
     featured: true,
     status: "live",
     caseStudy: {
